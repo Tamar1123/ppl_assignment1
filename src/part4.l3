@@ -8,7 +8,7 @@
   (lambda (lst)
     (if (empty? (cdr lst))
         (car lst)
-        (last-item(cdr lst)))))
+        (last-item (cdr lst)))))
 
 
 ; Signature: remove-last-item(lst)
@@ -32,11 +32,11 @@
 
 (define rotate-nth
   (lambda (lst n)
-    (empty? lst)
-    '()
-    (if (= n 0)
-        lst
-        (rotate-nth (cons (last-item lst) (remove-last-item lst)) (- n 1)))))
+    (if (empty? lst)
+      '()
+      (if (= n 0)
+          lst
+          (rotate-nth (cons (last-item lst) (remove-last-item lst)) (- n 1))))))
 
 
 
@@ -48,11 +48,11 @@
 
 (define deep-reverse
   (lambda (lst)
-    (if(empty? lst)
+    (if (empty? lst)
     '()
-    (if(list? (car lst))
-       (list-append (deep-reverse (cdr lst))(list (deep-reverse (car lst))))
-       (list-append (deep-reverse (cdr lst))(list (car lst)))))))
+    (if (list? (car lst))
+       (list-append (deep-reverse (cdr lst)) (list (deep-reverse (car lst))))
+       (list-append (deep-reverse (cdr lst)) (list (car lst)))))))
 
 
 
