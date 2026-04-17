@@ -75,11 +75,11 @@ type Product = {
 
 const getDiscountedProductAveragePriceFP = (inventory: Product[]): number => {
 
-  const discountedProducts = inventory.filter(p => p.discounted);
+  const discountedPrices = inventory.filter(p => p.discounted).map(p => p.price);
   
-  (discountedProducts.length === 0) 
-  ? 0 
-  : discounted.reduce((acc, p) => acc + p.price, 0) / discountedProducts.length;
+  return (discountedPrices.length === 0) 
+    ? 0 
+    : discountedPrices.reduce((acc, price) => acc + price, 0) / discountedPrices.length;
 };
 ```
 
@@ -99,7 +99,7 @@ Guidelines:
 
 2. [3 points] `x => x.map(y => y * 2)`    
 
-    `(x: number []) => number[]`
+    `(x: number[]) => number[]`
   
 
 3. [3 points] `(x, y) => x.filter(y)` 
