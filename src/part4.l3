@@ -4,11 +4,11 @@
 ; Pre-conditions: (not(empty? lst))
 ; Tests: (last-item '(10 20 30)) => 30, (last-item '(x y z)) => 'z, (last-item '((a b) (c d))) => '(c d)
 
-    (define last-item
-      (lambda (lst)
-        (if (empty? (cdr lst))
-            (car lst)
-            (last-item(cdr lst)))))
+(define last-item
+  (lambda (lst)
+    (if (empty? (cdr lst))
+        (car lst)
+        (last-item(cdr lst)))))
 
 
 ; Signature: remove-last-item(lst)
