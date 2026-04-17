@@ -1,6 +1,6 @@
 ; Signature: last-item(lst)
-; Type: <T>(lst: List<T>) => T
-; Purpose: Gets a list and returns the last item in the list
+; Type: [List(T) -> T]
+; Purpose: returns the last item in the list
 ; Pre-conditions: (not(empty? lst))
 ; Tests: (last-item '(10 20 30)) => 30, (last-item '(x y z)) => 'z, (last-item '((a b) (c d))) => '(c d)
 
@@ -12,8 +12,8 @@
 
 
 ; Signature: remove-last-item(lst)
-; Type: <T>(lst: List<T>) => List<T>
-; Purpose: Gets a list and returns the list without the last item
+; Type: [List(T) -> List(T)]
+; Purpose: returns the list without the last item
 ; Pre-conditions: (not(empty? lst))
 ; Tests: (remove-last-item '(5 6 7)) => '(5 6), (remove-last-item '(apple orange)) => '(apple), (remove-last-item '((1))) => '(), (remove-last-item '(x)) => '()
 
@@ -25,8 +25,8 @@
 
 
 ; Signature: rotate-nth(lst n)
-; Type: <T>(lst: List<T>, n: number) => List<T>
-; Purpose: Gets a list and a non-negative number n , and rotates the list n times to the right
+; Type: [List(T) * Number -> List(T)]
+; Purpose: rotates the list n times to the right
 ; Pre-conditions: n >= 0
 ; Tests: (rotate-nth '(a b c d) 2) => '(c d a b), (rotate-nth '(10 20) 5) => '(20 10), (rotate-nth '(1 2 3 4) 3) => '(2 3 4 1), (rotate-nth '(a b) 2) => '(a b)
 
@@ -41,9 +41,9 @@
 
 
 ; Signature: deep-reverse(lst)
-; Type: <T>(lst: List<T>) => List<T>
-; Purpose: Gets a nested list and returns a list with all elements reversed at every level of nesting
-; Pre-conditions: None
+; Type: [List -> List]
+; Purpose: returns a list with all elements reversed at every level of nesting
+; Pre-conditions: true
 ; Tests: (deep-reverse '(x (y) z)) => '(z (y) x), (deep-reverse '((1 (2)) 3)) => '(3 ((2) 1)), (deep-reverse '(1 2 3)) => '(3 2 1), (deep-reverse '(1 (2 3) (4 5))) => '((5 4) (3 2) 1), (deep-reverse '()) => '()
 
 (define deep-reverse
@@ -59,8 +59,8 @@
 ; Auxiliary procedure for 4.4 (deep-reverse):
 
 ; Signature: list-append(lst1, lst2)
-; Type: <T>(lst1: List<T>, lst2: List<T>) => List<T>
-; Purpose: Concatenates two lists into a single flat (not-nested) list
+; Type: [List(T) * List(T) -> List(T)]
+; Purpose: concatenates two lists into a single flat (not-nested) list
 ; Pre-conditions: (and (list? lst1) (list? lst2))
 ; Tests: (list-append '(1 2) '(3 4)) => '(1 2 3 4), (list-append '() '(a b)) => '(a b), (list-append '(hello) '(world)) => '(hello world)
 
